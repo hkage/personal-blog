@@ -5,3 +5,4 @@ Slug: continious
 Category: Blog
 Tags: github
 
+This is a test
