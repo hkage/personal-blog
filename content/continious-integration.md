@@ -14,16 +14,16 @@ integration and code coverage tool. Hosting the source on
 try. Both are free to use for non commercial projects and the setup looked very
 easy.
 
-# Travis
+## Travis
 
-## Create a repository
+### Create a repository
 
 The first thing you will obviously have to do is signing in with you github
 account. On the [profile page](https://travis-ci.org/profile) you can turn on
 (or off) the integration for your public repositories. With "Sync now" you can
 refresh the list of repositories.
 
-## Setup the project
+### Setup the project
 
 First you need to create a `.tavis.yml` file to configure the continious
 integration environment. Let's take a look at a simple configuration file for
@@ -52,16 +52,16 @@ You can also check the
 [documentation for Python](http://about.travis-ci.org/docs/user/languages/python/)
 which describes the several Python specific settings and commands.
 
-# Coveralls
+## Coveralls
 
-## Create a repository
+### Create a repository
 
 Like Travis-CI you can login with your github account. After that you can
 [add](https://coveralls.io/repos/new) one of your public repositories.
 
-## Setup the project
+### Setup the project
 
-## Commandline execution
+### Commandline execution
 
     #!sh
     pip install coveralls
@@ -84,6 +84,6 @@ After that you can push the result to your project page:
     #!sh
     coveralls
 
-# Post work
+## Post work
 
-## Integrate badges
+### Integrate badges
