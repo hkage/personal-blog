@@ -1,59 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta charset="utf-8">
-        <title>My personal blog</title>
-        <link rel="stylesheet" href="http://example.com/theme/css/main.css">
-                <link href="http://example.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="My personal blog Atom Feed" />
-                
-        <!--[if IE]>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+    <meta charset="utf-8">
+    <title>Test</title>
+    <meta name="description" content="">
+    <meta name="author" content="Henning Kage">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://example.com/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://example.com/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://example.com/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://example.com/theme/local.css" rel="stylesheet">
+    <link href="http://example.com/theme/pygments.css" rel="stylesheet">
+
 </head>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="http://example.com/">My personal blog </a></h1>
-                <nav><ul>
-                                                                                    <li ><a href="http://example.com/category/blog.html">Blog</a></li>
-                                                </ul></nav>
-        </header><!-- /#banner -->
-        <section id="content" class="body">
-<h1>Archives for My personal blog</h1>
+<body>
 
-<dl>
-    <dt>Fr 17 Mai 2013</dt>
-    <dd><a href="http://example.com/continious.html">Continious integration</a></dd>
-</dl>
-</section>
-        <section id="extras" class="body">
-                        <div class="blogroll">
-                        <h2>blogroll</h2>
-                        <ul>
-                                                    <li><a href="http://getpelican.com/">Pelican</a></li>
-                                                    <li><a href="http://python.org/">Python.org</a></li>
-                                                    <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                                                    <li><a href="#">You can modify those links in your config file</a></li>
-                                                </ul>
-                </div><!-- /.blogroll -->
-                                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="http://example.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
-                            
-                                                    <li><a href="https://github.com/hkage">Github</a></li>
-                                                    <li><a href="#">Another social link</a></li>
-                                                </ul>
-                </div><!-- /.social -->
-                </section><!-- /#extras -->
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+        <a class="brand" href="http://example.com">Test</a>
 
+        <div class="nav-collapse">
+        <ul class="nav">
+                    
+                                </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+        
+<h1>Archives</h1>
+
+<table class="table">
+    <tbody>
+            <tr>
+        <td>28 May 2013</td>
+        <td><a href='http://example.com/continious.html'>Continious integration</a></td>
+        </tr>
+        </tbody>
+</table>
+
+
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://example.com/">Archives</a>
+                <li><a href="http://example.com/tags.html">Tags</a>
+                <li><a href="http://example.com/" rel="alternate">Atom feed</a></li>
+                            </ul>
+            </div>
+
+
+                        <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                                <li><a href="http://example.com/category/blog.html">Blog</a></li>
+                                   
+            </ul>
+            </div>
+            
+
+            
+
+                        <div class="social">
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Social
+                </li>
+           
+                                <li><a href="https://github.com/hkage">Github</a></li>
+                                <li><a href="https://plus.google.com/u/0/114121410383580244470/about">Google Plus</a></li>
+                                <li><a href="https://twitter.com/hkage">Twitter</a></li>
+                            </ul>
+            </div>
+            </div>
+            
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://example.com">Test</a> &copy; Henning Kage 2012</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
+ 
 </body>
 </html>

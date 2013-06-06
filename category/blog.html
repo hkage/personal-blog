@@ -1,74 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta charset="utf-8">
-        <title>My personal blog - Blog</title>
-        <link rel="stylesheet" href="http://example.com/theme/css/main.css">
-                <link href="http://example.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="My personal blog Atom Feed" />
-                
-        <!--[if IE]>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+    <meta charset="utf-8">
+    <title>Test</title>
+    <meta name="description" content="">
+    <meta name="author" content="Henning Kage">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://example.com/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://example.com/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://example.com/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://example.com/theme/local.css" rel="stylesheet">
+    <link href="http://example.com/theme/pygments.css" rel="stylesheet">
+
 </head>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="http://example.com/">My personal blog </a></h1>
-                <nav><ul>
-                                                                                    <li class="active"><a href="http://example.com/category/blog.html">Blog</a></li>
-                                                </ul></nav>
-        </header><!-- /#banner -->
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://example.com">Test</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+                    
+                                </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
                 
+
+        
+
+
+    <div class='article'>
+        <div class="content-title">
+            <a href="http://example.com/continious.html"><h1>Continious integration</h1></a>
+            Di 28 Mai 2013
+
+by <a class="url fn" href="http://example.com/author/henning-kage.html">Henning Kage</a>
+ 
+
+
+ 
+        </div>
+        
+        <div><p>A couple of weeks ago I revived one of my personal projects called
+<a href="https://github.com/hkage/inhouse-web">Inhouse-Web</a> and made a complete
+(source) makeover. During this process I also wanted to use a continious
+integration and code coverage tool. Hosting the source on
+<a href="https://github.com">github</a>, it made sense to me to give
+<a href="https://travis-ci.org">Travis-CI</a> and <a href="https://coveralls.io">coveralls.io</a> a
+try. Both are free to use for non commercial projects and the setup looked very
+easy.</p>
+<h2>Travis</h2>
+<h3>Create a repository</h3>
+<p>The first thing you will obviously have to do is signing in with you github
+account. On the <a href="https://travis-ci.org/profile">profile page</a> you can turn on
+(or off) the integration for your public repositories. With "Sync now" you can
+refresh the list of repositories.</p>
+<h3>Setup the project</h3>
+<p>First you need to create a <code>.tavis.yml</code> file to configure the continious
+integration environment. Let's take a look at a simple configuration file for
+a Python/Django project:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre>language: python
+python:
+  - 2.6
+  - 2.7
+install:
+  - pip install -q -r requirements.txt --use-mirrors
+</pre></div>
+</td></tr></table>
+
+<p><code>language</code> will tell Travis to use the Python interpreter for the integration
+tests.</p>
+<p><code>python</code> specifies the different Python version you want to use. Each entry will
+cause Travis to add a new fork. In this case we would generate two works for
+the Python versions 2.6 and 2.7.</p>
+<p><code>install</code> specifies the commands Travis has to execute before running tests for
+each fork. As we are using a set of libraries, e.g. Django, we tell Travis to
+install those libraries with pip.</p>
+<p>You can also check the
+<a href="http://about.travis-ci.org/docs/user/languages/python/">documentation for Python</a>
+which describes the several Python specific settings and commands.</p>
+<h2>Coveralls</h2>
+<h3>Create a repository</h3>
+<p>Like Travis-CI you can login with your github account. After that you can
+<a href="https://coveralls.io/repos/new">add</a> one of your public repositories.</p>
+<h3>Setup the project</h3>
+<h3>Commandline execution</h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>pip install coveralls
+</pre></div>
+</td></tr></table>
+
+<p>Create a <code>.coveralls.yml</code> file and add your private token to the file. Note that
+the token must be secret and the file should <em>NOT</em> be added to your project's
+repository.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>repo_token: &lt;your token&gt;
+</pre></div>
+</td></tr></table>
+
+<p>To push the current coverage result, you will have to regenerate the coverage
+statics, e.g. with:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>coverage run manage.py <span class="nb">test</span>
+</pre></div>
+</td></tr></table>
+
+<p>After that you can push the result to your project page:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>coveralls
+</pre></div>
+</td></tr></table>
+
+<h2>Post work</h2>
+<h3>Integrate badges</h3></div>
+        <hr />
+    </div>
+		
+            <div class="pagination">
+<ul>
+    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+
+    <li class="active"><a href="http://example.com/category/blog.html">1</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+
+</ul>
+</div>    
+ 
+  
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://example.com/">Archives</a>
+                <li><a href="http://example.com/tags.html">Tags</a>
+                <li><a href="http://example.com/" rel="alternate">Atom feed</a></li>
+                            </ul>
+            </div>
+
+
+                        <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                                <li><a href="http://example.com/category/blog.html">Blog</a></li>
+                                   
+            </ul>
+            </div>
             
 
-                            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="http://example.com/continious.html">Continious integration</a></h1> 
-                    <footer class="post-info">
-        <abbr class="published" title="2013-05-17T00:00:00">
-                Fr 17 Mai 2013
-        </abbr>
+            
 
-                <address class="vcard author">
-                By <a class="url fn" href="http://example.com/author/henning-kage.html">Henning Kage</a>
-        </address>
-        <p>In <a href="http://example.com/category/blog.html">Blog</a>. </p>
-<p>tags: <a href="http://example.com/tag/github.html">github</a></p>
-</footer><!-- /.post-info --><p>This is a test</p>                </article>
-                                    <p class="paginator">
-        Page 1 / 1
-    </p>
-                            </aside><!-- /#featured -->
-                                                </ol><!-- /#posts-list -->
-                        </section><!-- /#content -->
-                    <section id="extras" class="body">
-                        <div class="blogroll">
-                        <h2>blogroll</h2>
-                        <ul>
-                                                    <li><a href="http://getpelican.com/">Pelican</a></li>
-                                                    <li><a href="http://python.org/">Python.org</a></li>
-                                                    <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                                                    <li><a href="#">You can modify those links in your config file</a></li>
-                                                </ul>
-                </div><!-- /.blogroll -->
-                                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="http://example.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
-                            
-                                                    <li><a href="https://github.com/hkage">Github</a></li>
-                                                    <li><a href="#">Another social link</a></li>
-                                                </ul>
-                </div><!-- /.social -->
-                </section><!-- /#extras -->
+                        <div class="social">
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Social
+                </li>
+           
+                                <li><a href="https://github.com/hkage">Github</a></li>
+                                <li><a href="https://plus.google.com/u/0/114121410383580244470/about">Google Plus</a></li>
+                                <li><a href="https://twitter.com/hkage">Twitter</a></li>
+                            </ul>
+            </div>
+            </div>
+            
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://example.com">Test</a> &copy; Henning Kage 2012</p>
+</footer>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
-
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
+ 
 </body>
 </html>

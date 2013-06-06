@@ -1,2 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>My personal blog</title><link href="http://example.com/" rel="alternate"></link><link href="http://example.com/feeds/all.atom.xml" rel="self"></link><id>http://example.com/</id><updated>2013-05-17T00:00:00+02:00</updated><entry><title>Continious integration</title><link href="http://example.com/continious.html" rel="alternate"></link><updated>2013-05-17T00:00:00+02:00</updated><author><name>Henning Kage</name></author><id>tag:example.com,2013-05-17:continious.html</id><summary type="html">&lt;p&gt;This is a test&lt;/p&gt;</summary><category term="github"></category></entry></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Test</title><link href="http://example.com/" rel="alternate"></link><link href="http://example.com/feeds/all.atom.xml" rel="self"></link><id>http://example.com/</id><updated>2013-05-28T00:00:00+02:00</updated><entry><title>Continious integration</title><link href="http://example.com/continious.html" rel="alternate"></link><updated>2013-05-28T00:00:00+02:00</updated><author><name>Henning Kage</name></author><id>tag:example.com,2013-05-28:continious.html</id><summary type="html">&lt;p&gt;A couple of weeks ago I revived one of my personal projects called
+&lt;a href="https://github.com/hkage/inhouse-web"&gt;Inhouse-Web&lt;/a&gt; and made a complete
+(source) makeover. During this process I also wanted to use a continious
+integration and code coverage tool. Hosting the source on
+&lt;a href="https://github.com"&gt;github&lt;/a&gt;, it made sense to me to give
+&lt;a href="https://travis-ci.org"&gt;Travis-CI&lt;/a&gt; and &lt;a href="https://coveralls.io"&gt;coveralls.io&lt;/a&gt; a
+try. Both are free to use for non commercial projects and the setup looked very
+easy.&lt;/p&gt;
+&lt;h2&gt;Travis&lt;/h2&gt;
+&lt;h3&gt;Create a repository&lt;/h3&gt;
+&lt;p&gt;The first thing you will obviously have to do is signing in with you github
+account. On the &lt;a href="https://travis-ci.org/profile"&gt;profile page&lt;/a&gt; you can turn on
+(or off) the integration for your public repositories. With "Sync now" you can
+refresh the list of repositories.&lt;/p&gt;
+&lt;h3&gt;Setup the project&lt;/h3&gt;
+&lt;p&gt;First you need to create a &lt;code&gt;.tavis.yml&lt;/code&gt; file to configure the continious
+integration environment. Let's take a look at a simple configuration file for
+a Python/Django project:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;language: python
+python:
+  - 2.6
+  - 2.7
+install:
+  - pip install -q -r requirements.txt --use-mirrors
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;&lt;code&gt;language&lt;/code&gt; will tell Travis to use the Python interpreter for the integration
+tests.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;python&lt;/code&gt; specifies the different Python version you want to use. Each entry will
+cause Travis to add a new fork. In this case we would generate two works for
+the Python versions 2.6 and 2.7.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;install&lt;/code&gt; specifies the commands Travis has to execute before running tests for
+each fork. As we are using a set of libraries, e.g. Django, we tell Travis to
+install those libraries with pip.&lt;/p&gt;
+&lt;p&gt;You can also check the
+&lt;a href="http://about.travis-ci.org/docs/user/languages/python/"&gt;documentation for Python&lt;/a&gt;
+which describes the several Python specific settings and commands.&lt;/p&gt;
+&lt;h2&gt;Coveralls&lt;/h2&gt;
+&lt;h3&gt;Create a repository&lt;/h3&gt;
+&lt;p&gt;Like Travis-CI you can login with your github account. After that you can
+&lt;a href="https://coveralls.io/repos/new"&gt;add&lt;/a&gt; one of your public repositories.&lt;/p&gt;
+&lt;h3&gt;Setup the project&lt;/h3&gt;
+&lt;h3&gt;Commandline execution&lt;/h3&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;pip install coveralls
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Create a &lt;code&gt;.coveralls.yml&lt;/code&gt; file and add your private token to the file. Note that
+the token must be secret and the file should &lt;em&gt;NOT&lt;/em&gt; be added to your project's
+repository.&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;repo_token: &amp;lt;your token&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;To push the current coverage result, you will have to regenerate the coverage
+statics, e.g. with:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;coverage run manage.py &lt;span class="nb"&gt;test&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;After that you can push the result to your project page:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;coveralls
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;h2&gt;Post work&lt;/h2&gt;
+&lt;h3&gt;Integrate badges&lt;/h3&gt;</summary><category term="github"></category><category term="ci"></category><category term="coverage"></category><category term="python"></category></entry></feed>
