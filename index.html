@@ -56,8 +56,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="./continious.html"><h1>Continious integration</h1></a>
-            Di 28 Mai 2013
+            <a href="./bootstrap.html"><h1>Bootstrap for Django projects</h1></a>
+            Wed 17 July 2013
 
 by <a class="url fn" href="./author/henning-kage.html">Henning Kage</a>
  
@@ -66,82 +66,33 @@ by <a class="url fn" href="./author/henning-kage.html">Henning Kage</a>
  
         </div>
         
-        <div><p>A couple of weeks ago I revived one of my personal projects called
+        <div></div>
+        <hr />
+    </div>
+		
+    
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="./continious.html"><h2>Continious integration for github projects</h2></a>
+        <div class= "well small"> Tue 28 May 2013
+
+by <a class="url fn" href="./author/henning-kage.html">Henning Kage</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>A couple of weeks ago I revived one of my personal projects called
 <a href="https://github.com/hkage/inhouse-web">Inhouse-Web</a> and made a complete
 (source) makeover. During this process I also wanted to use a continious
 integration and code coverage tool. Hosting the source on
 <a href="https://github.com">github</a>, it made sense to me to give
-<a href="https://travis-ci.org">Travis-CI</a> and <a href="https://coveralls.io">coveralls.io</a> a
-try. Both are free to use for non commercial projects and the setup looked very
-easy.</p>
-<h2>Travis</h2>
-<h3>Create a repository</h3>
-<p>The first thing you will obviously have to do is signing in with you github
-account. On the <a href="https://travis-ci.org/profile">profile page</a> you can turn on
-(or off) the integration for your public repositories. With "Sync now" you can
-refresh the list of repositories.</p>
-<h3>Setup the project</h3>
-<p>First you need to create a <code>.tavis.yml</code> file to configure the continious
-integration environment. Let's take a look at a simple configuration file for
-a Python/Django project:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre>language: python
-python:
-  - 2.6
-  - 2.7
-install:
-  - pip install -q -r requirements.txt --use-mirrors
-</pre></div>
-</td></tr></table>
-
-<p><code>language</code> will tell Travis to use the Python interpreter for the integration
-tests.</p>
-<p><code>python</code> specifies the different Python version you want to use. Each entry will
-cause Travis to add a new fork. In this case we would generate two works for
-the Python versions 2.6 and 2.7.</p>
-<p><code>install</code> specifies the commands Travis has to execute before running tests for
-each fork. As we are using a set of libraries, e.g. Django, we tell Travis to
-install those libraries with pip.</p>
-<p>You can also check the
-<a href="http://about.travis-ci.org/docs/user/languages/python/">documentation for Python</a>
-which describes the several Python specific settings and commands.</p>
-<h2>Coveralls</h2>
-<h3>Create a repository</h3>
-<p>Like Travis-CI you can login with your github account. After that you can
-<a href="https://coveralls.io/repos/new">add</a> one of your public repositories.</p>
-<h3>Setup the project</h3>
-<h3>Commandline execution</h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>pip install coveralls
-</pre></div>
-</td></tr></table>
-
-<p>Create a <code>.coveralls.yml</code> file and add your private token to the file. Note that
-the token must be secret and the file should <em>NOT</em> be added to your project's
-repository.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>repo_token: &lt;your token&gt;
-</pre></div>
-</td></tr></table>
-
-<p>To push the current coverage result, you will have to regenerate the coverage
-statics, e.g. with:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>coverage run manage.py <span class="nb">test</span>
-</pre></div>
-</td></tr></table>
-
-<p>After that you can push the result to your project page:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>coveralls
-</pre></div>
-</td></tr></table>
-
-<h2>Post work</h2>
-<h3>Integrate badges</h3></div>
-        <hr />
-    </div>
-		
+<a href="https://travis-ci.org">Travis-CI</a> and <a href="https://coveralls.io">coveralls ...</a></p> <a class="btn btn-info xsmall" href="./continious.html">read more</a></div>
+    </div>	
+				
             <div class="pagination">
 <ul>
     <li class="prev disabled"><a href="#">&larr; Previous</a></li>
