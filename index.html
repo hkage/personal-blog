@@ -66,7 +66,20 @@ by <a class="url fn" href="./author/henning-kage.html">Henning Kage</a>
  
         </div>
         
-        <div></div>
+        <div><h3>Integrate bootstrap</h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>mkdir -p static/less static/css
+</pre></div>
+</td></tr></table>
+
+<p>Now we can add bootstrap as an external git submodule. You have to add the
+submodule from your project (git) root directory:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="nb">cd</span> &lt;project root&gt;
+git submodule add git://github.com/twitter/bootstrap.git &lt;static dir&gt;/bootstrap
+</pre></div>
+</td></tr></table>
+
+<h3>Modify base template</h3></div>
         <hr />
     </div>
 		

@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Test</title><link href="http://hkage.github.io/personal-blog/" rel="alternate"></link><link href="http://hkage.github.io/personal-blog/feeds/blog.atom.xml" rel="self"></link><id>http://hkage.github.io/personal-blog/</id><updated>2013-07-17T00:00:00+02:00</updated><entry><title>Bootstrap for Django projects</title><link href="http://hkage.github.io/personal-blog/bootstrap.html" rel="alternate"></link><updated>2013-07-17T00:00:00+02:00</updated><author><name>Henning Kage</name></author><id>tag:hkage.github.io/personal-blog,2013-07-17:bootstrap.html</id><summary type="html"></summary><category term="django"></category><category term="bootstrap"></category></entry><entry><title>Continious integration for github projects</title><link href="http://hkage.github.io/personal-blog/continious.html" rel="alternate"></link><updated>2013-05-28T00:00:00+02:00</updated><author><name>Henning Kage</name></author><id>tag:hkage.github.io/personal-blog,2013-05-28:continious.html</id><summary type="html">&lt;p&gt;A couple of weeks ago I revived one of my personal projects called
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Test</title><link href="http://hkage.github.io/personal-blog/" rel="alternate"></link><link href="http://hkage.github.io/personal-blog/feeds/blog.atom.xml" rel="self"></link><id>http://hkage.github.io/personal-blog/</id><updated>2013-07-17T00:00:00+02:00</updated><entry><title>Bootstrap for Django projects</title><link href="http://hkage.github.io/personal-blog/bootstrap.html" rel="alternate"></link><updated>2013-07-17T00:00:00+02:00</updated><author><name>Henning Kage</name></author><id>tag:hkage.github.io/personal-blog,2013-07-17:bootstrap.html</id><summary type="html">&lt;h3&gt;Integrate bootstrap&lt;/h3&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;mkdir -p static/less static/css
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Now we can add bootstrap as an external git submodule. You have to add the
+submodule from your project (git) root directory:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; &amp;lt;project root&amp;gt;
+git submodule add git://github.com/twitter/bootstrap.git &amp;lt;static dir&amp;gt;/bootstrap
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;h3&gt;Modify base template&lt;/h3&gt;</summary><category term="django"></category><category term="bootstrap"></category></entry><entry><title>Continious integration for github projects</title><link href="http://hkage.github.io/personal-blog/continious.html" rel="alternate"></link><updated>2013-05-28T00:00:00+02:00</updated><author><name>Henning Kage</name></author><id>tag:hkage.github.io/personal-blog,2013-05-28:continious.html</id><summary type="html">&lt;p&gt;A couple of weeks ago I revived one of my personal projects called
 &lt;a href="https://github.com/hkage/inhouse-web"&gt;Inhouse-Web&lt;/a&gt; and made a complete
 (source) makeover. During this process I also wanted to use a continious
 integration and code coverage tool. Hosting the source on
