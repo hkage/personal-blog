@@ -1,5 +1,5 @@
 Date: 2013-05-28
-Title: Continious integration
+Title: Continious integration for github projects
 Tagline: Integrate a github project in Travis and Coveralls
 Slug: continious
 Category: Blog
